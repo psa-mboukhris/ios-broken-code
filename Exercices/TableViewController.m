@@ -19,6 +19,16 @@
     [super viewDidLoad];
 }
 
+/* ---------------
+ 
+    Launch DetailViewController programmaticaly here
+ 
+ -----------------*/
+
+- (void) pushDetailViewController:(NSString*)rowValue {
+    
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -28,7 +38,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 0;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -44,24 +53,13 @@
 }
 
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger row = indexPath.row + 1;
     if (row % 2 == 0) {
         [self pushDetailViewController:[NSString stringWithFormat:@"%ld", row]];
-    }
-    else {
+    } else {
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
-
-/* ---------------
- 
-    Launch DetailViewController programmaticaly here
- 
- -----------------*/
-
--(void)pushDetailViewController:(NSString*)rowValue {
-}
-
 
 @end
