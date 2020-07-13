@@ -7,11 +7,11 @@
 //
 
 #import "ViewController.h"
-#import "TableViewController.h"
+#import "ListTableViewController.h"
 
 @interface ViewController () <ReturnDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *resutLabel;
+@property (weak, nonatomic) IBOutlet UILabel *resultLabel;
 
 @end
 
@@ -20,6 +20,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.stringResult = @"To Define";
+}
+- (IBAction)btnClicked:(UIButton *)sender {
+     UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        ListTableViewController* controller = [storyboard instantiateViewControllerWithIdentifier:@"ListTableViewController"];
+    controller.delegate = self;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 -(void)returnValue:(NSInteger)value{
@@ -32,13 +38,18 @@
 }
 
 -(void)setResultLabelText:(NSString*)text{
-    self.resutLabel.text = [NSString stringWithFormat:@"Result : %@", text];
+    self.resultLabel.text = [NSString stringWithFormat:@"Result : %@", text];
 }
 
  #pragma mark - Navigation
  
 
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+     
+     
  }
+
+
+
 
 @end

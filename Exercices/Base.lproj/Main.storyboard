@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dVi-l1-XWd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dVi-l1-XWd">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,6 +11,7 @@
         <!--Navigation Controller-->
         <scene sceneID="X0j-Kb-nvc">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jWA-el-zDM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="dVi-l1-XWd" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="w2g-fA-jpt">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -20,14 +21,13 @@
                         <segue destination="FSd-ni-AiX" kind="relationship" relationship="rootViewController" id="NrE-aU-eiL"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jWA-el-zDM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-44" y="129"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="G40-o1-Qv0">
             <objects>
-                <viewController id="FSd-ni-AiX" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="FSd-ni-AiX" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XY8-fd-VSN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,7 +37,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Go To TableView"/>
                                 <connections>
-                                    <segue destination="VL1-kp-CUe" kind="show" id="azK-Sb-sKL"/>
+                                    <action selector="btnClicked:" destination="FSd-ni-AiX" eventType="touchUpInside" id="hOX-Qp-801"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLD-Sh-Q4D">
@@ -59,17 +59,17 @@
                     </view>
                     <navigationItem key="navigationItem" id="3cS-W7-uFD"/>
                     <connections>
-                        <outlet property="resultLabel" destination="YLD-Sh-Q4D" id="yAu-b3-lbS"/>
+                        <outlet property="resultLabel" destination="YLD-Sh-Q4D" id="AGC-li-u6p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kNx-74-2br" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="800" y="129"/>
         </scene>
-        <!--Table View Controller-->
+        <!--List Table View Controller-->
         <scene sceneID="239-Dx-q99">
             <objects>
-                <tableViewController id="VL1-kp-CUe" customClass="TableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ListTableViewController" id="VL1-kp-CUe" customClass="ListTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Mej-pL-abO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -103,10 +103,10 @@
             </objects>
             <point key="canvasLocation" x="1611.5942028985507" y="128.57142857142856"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Details View Controller-->
         <scene sceneID="iWy-2e-fNQ">
             <objects>
-                <viewController storyboardIdentifier="DetailViewController" id="NMF-7d-Rr2" customClass="DetailViewController" customModule="Exercices" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsViewController" id="NMF-7d-Rr2" customClass="DetailsViewController" customModule="Exercices" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fyt-5q-SnD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -121,7 +121,7 @@
                                     <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="finishAction:" destination="NMF-7d-Rr2" eventType="touchUpInside" id="Qpk-0q-NNU"/>
+                                    <action selector="finishClicked:" destination="NMF-7d-Rr2" eventType="touchUpInside" id="Hzw-GB-N3S"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qE4-95-WQK">
@@ -143,7 +143,7 @@
                         <viewLayoutGuide key="safeArea" id="n7b-d3-zS3"/>
                     </view>
                     <connections>
-                        <outlet property="labelDetail" destination="qE4-95-WQK" id="En9-Fu-VYI"/>
+                        <outlet property="detailLbl" destination="qE4-95-WQK" id="WTq-ve-Rln"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z9n-du-kkL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
