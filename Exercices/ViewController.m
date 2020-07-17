@@ -17,6 +17,8 @@
 
 @implementation ViewController
 
+@synthesize stringResult = _stringResult;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.stringResult = @"To Define";
