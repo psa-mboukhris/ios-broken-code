@@ -9,14 +9,15 @@
 import Foundation
 import UIKit
 
-class DetailViewController: UIViewController {
+@objc public class DetailViewController: UIViewController {
 
-    var stringDetail = ""
+    @objc public var stringDetail = ""
     
     @IBOutlet weak var label: UILabel!
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
+        self.label.text = "Result detail : \(stringDetail)"
     }
     
 
@@ -26,6 +27,11 @@ class DetailViewController: UIViewController {
      
      -----------------*/
     @IBAction func finishAction(_ sender: UIButton) {
+        if let rootView = self.navigationController?.viewControllers[0] as? ViewController {
+            rootView.stringResult = stringDetail
+        }
+
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
 }

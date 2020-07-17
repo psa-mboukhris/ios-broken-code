@@ -8,6 +8,7 @@
 
 #import "TableViewController.h"
 #import "Exercices-Swift.h"
+#import "ViewController.h"
 
 @interface TableViewController ()
 
@@ -26,17 +27,20 @@
  -----------------*/
 
 - (void) pushDetailViewController:(NSString*)rowValue {
-    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    DetailViewController *detailVC = [storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
+    detailVC.stringDetail = [NSString stringWithFormat:@"%@", rowValue];
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -58,7 +62,10 @@
     if (row % 2 == 0) {
         [self pushDetailViewController:[NSString stringWithFormat:@"%ld", row]];
     } else {
-        [self.navigationController popViewControllerAnimated:YES];
+        ViewController *rootController = self.navigationController.viewControllers[0];
+        rootController.stringResult = [NSString stringWithFormat:@"%ld", (long)row];
+
+        [self.navigationController popToViewController:rootController animated:true];
     }
 }
 

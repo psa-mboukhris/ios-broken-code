@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@interface ViewController : UIViewController {
+    @public NSString* stringResult;
+}
 
-@interface ViewController : UIViewController
-
-
-@property (weak, nonatomic) NSString *stringResult;
-
+@property (nonatomic, strong, nonnull) NSString *stringResult;
 
 @end
 
